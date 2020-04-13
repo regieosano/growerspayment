@@ -28,8 +28,14 @@ function QualityComp() {
 
   const printReportsBodyContent = <h6>Generate PDF Report?</h6>;
 
-  const togglePrintModal = () => {
+  const togglePrintModal = (e) => {
+    console.log(e.target.name);
     setIsOpenPrintDialogModal(!isOpenPrintDialogModal);
+  };
+
+  const handleGeneratePDF = (e) => {
+    console.log(e.target.name);
+    togglePrintModal();
   };
 
   return (
@@ -74,7 +80,7 @@ function QualityComp() {
                 <hr />
               </section>
               <section className='menu-buttons'>
-                <ProcessButtons handlePrintResults={togglePrintModal} />
+                <ProcessButtons handlePrintResults={handleGeneratePDF} />
               </section>
             </div>
           </CardBody>

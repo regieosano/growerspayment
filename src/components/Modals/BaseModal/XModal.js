@@ -30,6 +30,7 @@ function XModal({
                 className='button-design'
                 disabled={isValidForm}
                 id={buttonHappyText.toLowerCase()}
+                name={buttonHappyText.toLowerCase()}
                 onClick={onHandleToggleModal}>
                 {buttonHappyText}
               </button>
@@ -37,6 +38,7 @@ function XModal({
             <button
               className='button-design'
               id={buttonSadText.toLowerCase()}
+              name={buttonSadText.toLowerCase()}
               onClick={onHandleToggleModal}>
               {buttonSadText}
             </button>

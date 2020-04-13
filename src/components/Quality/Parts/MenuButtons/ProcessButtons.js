@@ -33,6 +33,7 @@ function ProcessButtons({ handlePrintResults }) {
             <button
               className='btn btn-md round bg-color-hover'
               id='print-button'
+              name='printResults'
               onClick={handlePrintResults}>
               <span>{printIcon}</span>&nbsp;&nbsp;PRINT RESULTS
             </button>

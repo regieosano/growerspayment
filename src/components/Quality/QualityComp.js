@@ -35,7 +35,6 @@ function QualityComp() {
 
   const handleGeneratePDF = (e) => {
     console.log(e.target.name);
-    togglePrintModal();
   };
 
   return (
@@ -80,7 +79,7 @@ function QualityComp() {
                 <hr />
               </section>
               <section className='menu-buttons'>
-                <ProcessButtons handlePrintResults={handleGeneratePDF} />
+                <ProcessButtons handlePrintResults={togglePrintModal} />
               </section>
             </div>
           </CardBody>

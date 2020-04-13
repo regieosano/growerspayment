@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    .main-card-bg {
+        background-color: rgb(255, 250, 250);
+        border: none;
+        width: 90%;
+
+
+        #inner-card {
+            display: grid;
+            border: none;
+            margin-top: 8px; //ADJUST
+            margin-left: 2rem;
+            margin-right: 3rem;
+            margin-bottom: 3.5rem;
+            width: 100%;
+
+
+
+            .quality-format {
+                font-size: x-large;
+                font-family: Arial, Helvetica, sans-serif;
+                color: rgb(0, 128, 0);
+                margin-left: 1rem;
+            }
+
+            .font-format {
+                font-size: small;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            #sample1 {
+                color: rgb(0, 128, 0);
+                letter-spacing: 0.1em;
+            }
+
+            #card-body {
+                margin: 0;
+                margin-top: .4rem;
+                padding: 0;
+            }
+
+
+            #inner-container {
+                border-radius: 25px;
+                background: rgb(243, 243, 243);
+                padding: 25px;
+                width: 1195px;
+                height: 750px;
+                display: grid;
+                column-gap: 7em;
+                row-gap: .8em;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 33.3% 3.5% 33.3% 3.5%;
+                grid-template-areas:
+                    "p p p p p p p p w w w w"
+                    "l l l l l l l l w w w w"
+                    "k k k k k k k k w w w w"
+                    "f f f f f f f f f f f f"
+                    "b b b b b b b b b b b b "
+            }
+
+            // Align header items in the middle
+            ul {
+                display: table;
+
+                li {
+                    display: inline-block;
+                }
+
+                li.header-format {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                margin-top: 1.5rem;
+                margin-left: .3rem;
+            }
+
+
+            .proc {
+                grid-area: p;
+            }
+
+            .first-line {
+                grid-area: l;
+                row-gap: 0;
+                width: 113%;
+            }
+
+            .weights {
+                grid-area: w;
+            }
+
+            .kernel {
+                grid-area: k;
+            }
+
+            .final-line {
+                grid-area: f;
+                margin-top: 6rem;
+                width: 93%;
+            }
+
+            .menu-buttons {
+                grid-area: b;
+                margin-top: 4.5rem;
+                margin-right: 5.5rem;
+            }
+
+            // Width size for the input boxes
+            .defects-input-size {
+                width: 3.5rem;
+            }
+
+            .defects-margin-left {
+                margin-left: .8rem;
+            }
+        }
+
+    }
+}
+
+@media(max-width: 1675px) {
+    #inner-container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,28 @@
+.main-container {
+    height: 100%;
+    display: grid;
+    gap: 1.3rem;
+    grid-template-columns: repeat(auto-fit, 100px);
+    grid-template-rows: 40px auto 40px;
+    grid-template-areas: "h h h h h h h h h h h h"
+        "m c c c c c c c c c c c";
+
+    column-gap: 3.8rem;
+
+    .item {
+        display: grid;
+    }
+
+    .header {
+        grid-area: h;
+    }
+
+    .menu {
+        grid-area: m;
+
+    }
+
+    .content {
+        grid-area: c;
+    }
+}

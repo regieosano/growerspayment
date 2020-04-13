@@ -1,0 +1,41 @@
+.ksd-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 3.3em;
+    margin-bottom: 1em;
+
+    .ksd-field {
+        grid-column: span 2;
+        display: grid;
+        grid: inherit;
+        grid-template-columns: 8em 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: inherit;
+    }
+
+    .form-format {
+        margin-top: 0rem;
+    }
+
+    .total-margin-format {
+        margin-left: 8px;
+        font-size: small;
+        font-weight: 500;
+    }
+
+    .pct-margin-format {
+        margin-left: 8px;
+        font-size: small;
+        font-weight: 500;
+    }
+
+    .font-format-small {
+        margin-top: 5px;
+        font-size: x-small;
+    }
+
+    #kernel-defects,
+    #shell-defects {
+        font-weight: 600;
+        letter-spacing: 0.01em;
+    }
+}

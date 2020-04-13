@@ -1,0 +1,109 @@
+.wm-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+
+    .wm-field {
+        grid-column: span 2;
+        display: grid;
+        grid: inherit;
+        grid-template-columns: 8em 1fr 1fr;
+        gap: inherit;
+    }
+
+    .vert-line {
+        border-left: 1px solid gainsboro;
+        padding-left: 15px;
+        height: 630px;
+    }
+
+    #weights-moisture {
+        margin-left: 0rem;
+        margin-bottom: .5rem;
+        letter-spacing: 1px;
+    }
+
+    #wm-line {
+        width: 235px;
+        margin-left: 0rem;
+
+    }
+
+    #in {
+        margin-left: 6.4rem;
+        font-weight: 700;
+    }
+
+    #out {
+        margin-left: 5.8rem;
+        font-weight: 700;
+    }
+
+    #netlosslabel {
+        margin-left: 4.2rem;
+        font-weight: 700;
+    }
+
+    #debris {
+        margin-left: 4.9rem;
+        font-weight: 700;
+    }
+
+    #moisture-t1,
+    #moisture-t2,
+    #moisture-t3,
+    #moisturetotal {
+        margin-top: 0;
+        padding: 0;
+        margin-left: 2rem;
+        font-weight: 700;
+    }
+
+    #moistureaverage {
+        margin-left: 1.1rem;
+        font-size: x-small;
+        font-weight: 700;
+    }
+
+    #netloss {
+        margin-top: 2px;
+        text-align: right;
+        font-weight: 600;
+        margin-left: 3.5rem;
+        font-size: 12px;
+    }
+
+    #moist-total,
+    #moist-ave {
+        text-align: right;
+        font-weight: 600;
+        margin-left: 3.5rem;
+        font-size: 12px;
+
+    }
+
+    .wm-input-size {
+        width: 90px;
+        height: 25px;
+    }
+
+    input {
+        appearance: none;
+        border-radius: 25px;
+        font-weight: 300;
+        outline: none;
+        background: #fff;
+        padding-right: .8rem;
+        margin-left: .2rem;
+        border-style: none;
+        font-size: 12px;
+        text-align: right;
+    }
+
+    .font-format-small {
+        margin-top: 5px;
+        font-size: x-small;
+    }
+
+
+}

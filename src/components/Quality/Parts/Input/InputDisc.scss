@@ -1,0 +1,57 @@
+.design {
+    appearance: none;
+    border-radius: 25px;
+    outline: none;
+    background: #fff;
+    padding-left: 0px;
+    font-size: small;
+    text-align: center;
+    border-style: none;
+    height: 28px
+}
+
+// Headers margins
+#worms,
+#rancid,
+#blanks,
+#shrivel,
+#jumbo {
+    margin-left: 4.6rem;
+    font-weight: 700;
+}
+
+#mold,
+#decay {
+    margin-left: 5rem;
+    font-weight: 700;
+}
+
+#stain,
+#splits {
+    margin-left: 5rem;
+    font-weight: 700;
+}
+
+#seriousdamage {
+    margin-left: 1.6rem;
+    font-weight: 700;
+}
+
+#machinedamage {
+    margin-left: 1.3rem;
+    font-weight: 700;
+}
+
+#offcolor {
+    margin-left: 3.6rem;
+    font-weight: 700;
+}
+
+#offtype {
+    margin-left: 4.3rem;
+    font-weight: 700;
+}
+
+input.background-final {
+    background-color: rgb(243, 243, 243);
+}

@@ -1,0 +1,146 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 57% 43%;
+    margin-bottom: 1em;
+
+    .field {
+        grid-column: span 3;
+        display: grid;
+        grid: inherit;
+        grid-template-columns: 9em 1fr 1fr;
+        gap: inherit;
+    }
+
+    .ls-field {
+        grid-column: span 3;
+        display: grid;
+        grid: inherit;
+        grid-template-columns: 8em 1fr 1fr;
+        gap: inherit;
+    }
+
+    .align-right {
+        text-align: left;
+        margin-right: 1rem;
+        font-weight: 600;
+    }
+
+    #samrec-proc-cert {
+        margin-top: 0rem;
+    }
+
+    #sample-data {
+        font-weight: 600;
+        letter-spacing: 0.01em;
+    }
+
+    .hor-line {
+        border-bottom: 1px solid gainsboro;
+        width: 800px;
+    }
+
+
+    .form-margins {
+        margin-top: 2.5rem;
+    }
+
+    input {
+        appearance: none;
+        border-radius: 25px;
+        outline: none;
+        font-size: small;
+        height: 30px;
+        background: #fff;
+        padding-left: 1rem;
+        border-style: none;
+    }
+
+    select {
+        appearance: none;
+        border-radius: 25px;
+        outline: none;
+        padding-left: 1rem;
+        font-size: small;
+        background: #fff;
+        border-style: none;
+    }
+
+    .input-format {
+        width: 300px;
+        height: 30px;
+    }
+
+    .top-format {
+        margin-top: 80px;
+        margin-bottom: 50px;
+    }
+
+    .top-format-cert {
+        margin-top: 85px;
+    }
+
+    .font-format-small {
+        margin-top: 5px;
+        font-size: x-small;
+    }
+
+    #rec-date {
+        width: 300px;
+        font-weight: 300;
+    }
+
+    #processor {
+        width: 300px;
+        height: 30px;
+    }
+
+    #received-date-lable {
+        font-weight: 700;
+    }
+
+    #processor-label {
+        margin-left: 3.8rem;
+        font-weight: 700;
+    }
+
+    #lot-label {
+        margin-left: 5rem;
+        font-weight: 700;
+    }
+
+    #cert-label {
+        margin-left: 5.5rem;
+        font-weight: 700;
+    }
+
+    #lot-margin {
+        margin-top: 38px;
+    }
+
+    #sample-no {
+        margin-left: 3.7rem;
+        font-weight: 700;
+    }
+
+    #change-cert-format {
+        color: var(--hgo-blue);
+        font-size: x-small;
+        font-weight: 900;
+        text-decoration: underline;
+
+    }
+
+    #change-cert-format:hover {
+        cursor: pointer;
+    }
+
+    #sample-num {
+        margin-left: 0rem;
+    }
+
+    #cert-number {
+        font-size: small;
+        font-weight: 800;
+    }
+
+}

@@ -13,6 +13,8 @@ import WeightsMoisture from "../Quality/Parts/WeightsMoisture/WeightsMoisture";
 import ProcessButtons from "../Quality/Parts/MenuButtons/ProcessButtons";
 import XModal from "../Modals/BaseModal/XModal";
 
+import { generateReportPDF } from "./../../utility/pdf/GeneratePDF";
+
 function QualityComp() {
   const qualityLabel = <span className='quality-format'>QUALITY</span>;
   const sample1Label = (
@@ -28,8 +30,15 @@ function QualityComp() {
 
   const printReportsBodyContent = <h6>Generate PDF Report?</h6>;
 
-  const togglePrintModal = (e) => {
-    console.log(e.target.name);
+  let report;
+
+  const togglePrintModal = ({ target: { name } }) => {
+    const nameOfEvent = name;
+    // if (nameOfEvent === "proceed") {
+    //   report = generateReportPDF();
+    //   console.log("pasok");
+    // }
+    console.log(nameOfEvent);
     setIsOpenPrintDialogModal(!isOpenPrintDialogModal);
   };
 
@@ -39,6 +48,7 @@ function QualityComp() {
 
   return (
     <>
+      {report}
       {/*Print Dialog Modal  */}
       <XModal
         isModalOpen={isOpenPrintDialogModal}

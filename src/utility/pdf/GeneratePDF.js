@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 import ReactPDF from "@react-pdf/renderer";
 
@@ -33,5 +34,5 @@ const MyDocument = () => (
 );
 
 export const generateReportPDF = () => {
-  ReactPDF.render(<MyDocument />, `${__dirname}/regie_example.pdf`);
+  ReactDOM.render(<MyDocument />, `${__dirname}/example.pdf`);
 };

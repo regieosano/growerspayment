@@ -14,8 +14,14 @@
     background: var(--hgo-blue);
 }
 
+#pdf-message {
+    font-size: small;
+    font-weight: 700;
+    color: rgb(5, 50, 148)
+}
+
 #generate-report {
-    width: 10rem;
+    width: 8rem;
 }
 
 #cancel {

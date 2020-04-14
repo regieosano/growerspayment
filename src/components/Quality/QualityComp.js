@@ -17,8 +17,6 @@ import WeightsMoisture from "../Quality/Parts/WeightsMoisture/WeightsMoisture";
 import ProcessButtons from "../Quality/Parts/MenuButtons/ProcessButtons";
 import XModal from "../Modals/BaseModal/XModal";
 
-import { generateReportPDF } from "./../../utility/pdf/GeneratePDF";
-
 import SummaryInHTML from "../../components/Quality/Parts/SummaryReports/SummaryInHTML";
 
 function QualityComp() {
@@ -32,12 +30,30 @@ function QualityComp() {
     <FontAwesomeIcon icon={faTasks} size={"3x"} color={"green"} />
   );
 
+  const processGenerateText = "Generate PDF";
+
   const [isOpenPrintDialogModal, setIsOpenPrintDialogModal] = useState(false);
+  const [isDisableButton, setIsDisableButton] = useState(false);
+  const [buttonTextGeneratePDF, setButtonTextGeneratePDF] = useState(
+    processGenerateText
+  );
 
   const printReportsBodyContent = <SummaryInHTML />;
 
   const togglePrintModal = ({ target: { name } }) => {
+    if (name === "printResults") {
+      setIsOpenPrintDialogModal(!isOpenPrintDialogModal);
+      setButtonTextGeneratePDF(processGenerateText);
+      setIsDisableButton(false);
+    }
+    if (name === "cancel") {
+      setIsOpenPrintDialogModal(!isOpenPrintDialogModal);
+      // Logic to stop the current process which is generating the PDF
+    }
+
     if (name === "generateReport") {
+      setIsDisableButton(true);
+      setButtonTextGeneratePDF("Generating PDF...");
       axios
         .post("http://localhost:7700/create-pdf", {
           r_section1: "Regie's Section #1",
@@ -52,16 +68,13 @@ function QualityComp() {
               const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
               saveAs(pdfBlob, "summarylab.pdf");
+
+              setIsOpenPrintDialogModal(!isOpenPrintDialogModal);
             });
         })
 
         .catch((err) => console.log(err));
     }
-    setIsOpenPrintDialogModal(!isOpenPrintDialogModal);
-  };
-
-  const handleGeneratePDF = (e) => {
-    console.log(e.target.name);
   };
 
   return (
@@ -73,9 +86,10 @@ function QualityComp() {
         modalBody={printReportsBodyContent}
         modalTitle={"Summary Lab Report"}
         modalId={"modalTitle"}
-        buttonHappyText={"Generate The Report"}
+        buttonHappyText={buttonTextGeneratePDF}
         buttonSadText={"Cancel"}
         onHandleToggleModal={togglePrintModal}
+        isDisableButton={isDisableButton}
       />
       {/*End Print Dialog Modal  */}
       <div className='main-card-bg'>

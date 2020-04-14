@@ -6,16 +6,18 @@
 
 .button-design {
     border-radius: 24px;
-    width: 5rem;
     padding: 5px;
     font-size: small;
     border-style: none;
     appearance: none;
-}
-
-
-#proceed,
-#cancel {
     color: var(--hgo-white);
     background: var(--hgo-blue);
+}
+
+#generate-report {
+    width: 10rem;
+}
+
+#cancel {
+    width: 5rem;
 }

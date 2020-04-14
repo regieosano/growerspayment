@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import axios from "axios";
+
 import "./QualityComp.scss";
 
 import { Card, CardBody } from "reactstrap";
@@ -15,6 +17,8 @@ import XModal from "../Modals/BaseModal/XModal";
 
 import { generateReportPDF } from "./../../utility/pdf/GeneratePDF";
 
+import SummaryInHTML from "../../components/Quality/Parts/SummaryReports/SummaryInHTML";
+
 function QualityComp() {
   const qualityLabel = <span className='quality-format'>QUALITY</span>;
   const sample1Label = (
@@ -28,17 +32,14 @@ function QualityComp() {
 
   const [isOpenPrintDialogModal, setIsOpenPrintDialogModal] = useState(false);
 
-  const printReportsBodyContent = <h6>Generate PDF Report?</h6>;
+  const printReportsBodyContent = <SummaryInHTML />;
 
   let report;
 
   const togglePrintModal = ({ target: { name } }) => {
-    const nameOfEvent = name;
-    // if (nameOfEvent === "proceed") {
-    //   report = generateReportPDF();
-    //   console.log("pasok");
-    // }
-    console.log(nameOfEvent);
+    if (name === "generateReport") {
+      axios.post("http://localhost:7700/create-pdf", {}).then().catch();
+    }
     setIsOpenPrintDialogModal(!isOpenPrintDialogModal);
   };
 
@@ -52,11 +53,11 @@ function QualityComp() {
       {/*Print Dialog Modal  */}
       <XModal
         isModalOpen={isOpenPrintDialogModal}
-        modalSize={"md"}
+        modalSize={"lg"}
         modalBody={printReportsBodyContent}
-        modalTitle={"Print Reports"}
+        modalTitle={"Summary Lab Report"}
         modalId={"modalTitle"}
-        buttonHappyText={"Proceed"}
+        buttonHappyText={"Generate The Report"}
         buttonSadText={"Cancel"}
         onHandleToggleModal={togglePrintModal}
       />

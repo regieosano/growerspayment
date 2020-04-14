@@ -24,21 +24,20 @@ function XModal({
           </div>
           <ModalBody>{modalBody}</ModalBody>
           <ModalFooter>
-            {buttonHappyText === "Proceed" && (
-              <button
-                type='button'
-                className='button-design'
-                disabled={isValidForm}
-                id={buttonHappyText.toLowerCase()}
-                name={buttonHappyText.toLowerCase()}
-                onClick={onHandleToggleModal}>
-                {buttonHappyText}
-              </button>
-            )}
+            <button
+              type='button'
+              className='button-design'
+              disabled={isValidForm}
+              id='generate-report'
+              name='generateReport'
+              onClick={onHandleToggleModal}>
+              {buttonHappyText}
+            </button>
+
             <button
               className='button-design'
-              id={buttonSadText.toLowerCase()}
-              name={buttonSadText.toLowerCase()}
+              id='cancel'
+              name='cancel'
               onClick={onHandleToggleModal}>
               {buttonSadText}
             </button>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import axios from "axios";
 
+import { saveAs } from "file-saver";
+
 import "./QualityComp.scss";
 
 import { Card, CardBody } from "reactstrap";
@@ -34,11 +36,26 @@ function QualityComp() {
 
   const printReportsBodyContent = <SummaryInHTML />;
 
-  let report;
-
   const togglePrintModal = ({ target: { name } }) => {
     if (name === "generateReport") {
-      axios.post("http://localhost:7700/create-pdf", {}).then().catch();
+      axios
+        .post("http://localhost:7700/create-pdf", {
+          r_section1: "Regie's Section #1",
+          r_section2: "Regie's Section #2",
+        })
+        .then(() => {
+          axios
+            .get("http://localhost:7700/fetch-pdf", {
+              responseType: "blob",
+            })
+            .then((res) => {
+              const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+
+              saveAs(pdfBlob, "summarylab.pdf");
+            });
+        })
+
+        .catch((err) => console.log(err));
     }
     setIsOpenPrintDialogModal(!isOpenPrintDialogModal);
   };
@@ -49,7 +66,6 @@ function QualityComp() {
 
   return (
     <>
-      {report}
       {/*Print Dialog Modal  */}
       <XModal
         isModalOpen={isOpenPrintDialogModal}

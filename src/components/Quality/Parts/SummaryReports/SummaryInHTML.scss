@@ -9,12 +9,81 @@
 }
 
 #grower,
-#company {
-    margin-left: 1rem;
+#company,
+#lot-no,
+#tester,
+#sample,
+#variety,
+#date-tested,
+#additional-test {
+    margin-left: .5rem;
     border: 0px;
     border-bottom: 2px solid #eee;
+    width: 150px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#additional-test {
+    width: 120px;
+}
+
+#lot-no,
+#sample {
+    margin-left: 1.5rem;
 }
 
 #comp-label {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
+
+.label-font-size {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.thick-line {
+    background-color: black !important;
+    color: black !important;
+    border: solid 1px black !important;
+    height: 1px !important;
+    width: 100%;
+}
+
+.box-include {
+    margin-left: 1rem;
+    border: solid 1px black !important;
+}
+
+.align-right-data {
+    text-align: right;
+}
+
+.adjust-margin {
+    margin: 1.5rem;
+    padding: 3px;
+}
+
+.header-position {
+    text-align: center;
+}
+
+#shell-first-table,
+#first-table {
+    display: inline-table;
+    float: left;
+}
+
+#sizing-second-table,
+#second-table {
+    margin-right: 1rem;
+    display: inline-table;
+    float: right;
+
+}
+
+.kernel-table {
+    margin-left: 5rem;
+}
+
+// next css

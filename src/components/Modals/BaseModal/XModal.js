@@ -20,9 +20,6 @@ function XModal({
     <>
       <div>
         <Modal isOpen={isModalOpen} size={modalSize}>
-          <div>
-            <h5 id={modalId}>{modalTitle}</h5>
-          </div>
           <ModalBody>{modalBody}</ModalBody>
           <ModalFooter>
             {isDisableButton && (

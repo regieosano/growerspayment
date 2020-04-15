@@ -82,7 +82,7 @@ function QualityComp() {
       {/*Print Dialog Modal  */}
       <XModal
         isModalOpen={isOpenPrintDialogModal}
-        modalSize={"lg"}
+        modalSize={"md"}
         modalBody={printReportsBodyContent}
         modalTitle={"Summary Lab Report"}
         modalId={"modalTitle"}

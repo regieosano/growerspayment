@@ -38,7 +38,43 @@ function QualityComp() {
     processGenerateText
   );
 
-  const printReportsBodyContent = <SummaryInHTML />;
+  const [weightIn, setWeightIn] = useState(0.0);
+  const [weightOut, setWeightOut] = useState(0.0);
+  const [debris, setDebris] = useState(0.0);
+  const [moistureTestArr, setMoistureArr] = useState([0.0, 0.0, 0.0]);
+
+  const handleProcess = (index = 0, val, key) => {
+    switch (key) {
+      case "WEIGHTIN":
+        setWeightIn(val);
+        break;
+      case "WEIGHTOUT":
+        setWeightOut(val);
+        break;
+      case "DEBRIS":
+        setDebris(val);
+      case "MOISTURETEST 1":
+      case "MOISTURETEST 2":
+      case "MOISTURETEST 3":
+        const updatedMoistureTestArr = [...moistureTestArr];
+        updatedMoistureTestArr[index] = val;
+        setMoistureArr(updatedMoistureTestArr);
+        break;
+    }
+  };
+
+  const printReportsBodyContent = (
+    <SummaryInHTML
+      weightIn={weightIn}
+      weightOut={weightOut}
+      debris={debris}
+      moistureTestArr={moistureTestArr}
+    />
+  );
+
+  const handleWeightsMoistAve = (val) => {
+    console.log(val);
+  };
 
   const togglePrintModal = ({ target: { name } }) => {
     if (name === "printResults") {
@@ -56,8 +92,10 @@ function QualityComp() {
       setButtonTextGeneratePDF("Generating PDF...");
       axios
         .post("http://localhost:7700/create-pdf", {
-          r_section1: "Regie's Section #1",
-          r_section2: "Regie's Section #2",
+          weightIn,
+          weightOut,
+          debris,
+          moistureTestArr,
         })
         .then(() => {
           axios
@@ -108,7 +146,7 @@ function QualityComp() {
                 <ProcRecLot />
               </section>
               <section className='weights'>
-                <WeightsMoisture />
+                <WeightsMoisture onHandleProcess={handleProcess} />
               </section>
               <section className='first-line'>
                 <hr />

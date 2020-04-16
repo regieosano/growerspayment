@@ -2,7 +2,7 @@ import React from "react";
 
 import "./SummaryInHTML.scss";
 
-function SummaryInHTML() {
+function SummaryInHTML({ weightIn, weightOut, debris, moistureTestArr }) {
   const dateReceived = "01/01/2020";
 
   return (
@@ -61,7 +61,7 @@ function SummaryInHTML() {
                 Weight Received &nbsp;
               </td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>8.39</span>
+                <span className='adjust-margin'>{weightIn}</span>
               </td>
             </tr>
             <tr>
@@ -69,7 +69,7 @@ function SummaryInHTML() {
                 Debris &nbsp;
               </td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>9.50</span>
+                <span className='adjust-margin'>{debris}</span>
               </td>
             </tr>
             <tr>
@@ -77,7 +77,7 @@ function SummaryInHTML() {
                 Weight Out &nbsp;
               </td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>10.50</span>
+                <span className='adjust-margin'>{weightOut}</span>
               </td>
             </tr>
           </tbody>
@@ -93,28 +93,28 @@ function SummaryInHTML() {
             <tr>
               <td className='align-right-data label-font-size'>1 &nbsp;</td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>8.39</span>
+                <span className='adjust-margin'>{moistureTestArr[0]}</span>
               </td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>8.39</span>
+                <span className='adjust-margin'>0</span>
               </td>
             </tr>
             <tr>
               <td className='align-right-data label-font-size'>2 &nbsp;</td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>9.50</span>
+                <span className='adjust-margin'>{moistureTestArr[1]}</span>
               </td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>9.50</span>
+                <span className='adjust-margin'>0</span>
               </td>
             </tr>
             <tr>
               <td className='align-right-data label-font-size'>3 &nbsp;</td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>10.50</span>
+                <span className='adjust-margin'>{moistureTestArr[2]}</span>
               </td>
               <td className='box-include label-font-size'>
-                <span className='adjust-margin'>10.50</span>
+                <span className='adjust-margin'>0</span>
               </td>
             </tr>
           </tbody>

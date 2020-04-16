@@ -8,8 +8,6 @@ function XModal({
   isModalOpen,
   onHandleToggleModal,
   modalSize,
-  modalTitle,
-  modalId,
   modalBody,
   buttonHappyText,
   buttonSadText,

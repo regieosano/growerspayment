@@ -2,16 +2,23 @@ import React, { useState } from "react";
 
 import "./WeightsMoisture.scss";
 
-function WeightsMoisture() {
+function WeightsMoisture({ onHandleProcess }) {
   const zero = Number.parseFloat("0.00").toFixed(2);
   const [netLoss, setNetLoss] = useState(zero);
   const [moistureTotal, setMoistureTotal] = useState(zero);
   const [moistureAverage, setMoistureAverage] = useState(zero);
   const [moistureArr, setMoistureArr] = useState([0.0, 0.0, 0.0]);
 
+  const WEIGHTIN = "WEIGHTIN";
+  const WEIGHTOUT = "WEIGHTOUT";
+  const DEBRIS = "DEBRIS";
+  const MOISTURETEST1 = "MOISTURETEST 1";
+  const MOISTURETEST2 = "MOISTURETEST 2";
+  const MOISTURETEST3 = "MOISTURETEST 3";
+
   const [inOutValArr] = useState([0.0, 0.0]);
 
-  const inOutDescArr = ["IN", "OUT"];
+  const inOutDescArr = ["IN", "OUT", "NET LOSS", "DEBRIS"];
 
   const moistureDescArr = [
     "MOISTURE TEST 1",
@@ -42,6 +49,7 @@ function WeightsMoisture() {
         if (inOutValArr[1] > 0.0) {
           findTheDifference();
         }
+        onHandleProcess(0, inOutValArr[0], WEIGHTIN);
         break;
       case "OUT":
         inOutValArr[1] = numValue;
@@ -51,20 +59,31 @@ function WeightsMoisture() {
           const defaultNetLoss = 0;
           setNetLoss(defaultNetLoss.toFixed(2));
         }
+        onHandleProcess(0, inOutValArr[1], WEIGHTOUT);
         break;
-      case "moisturetest 1":
+      case "DEBRIS":
+        inOutValArr[2] = numValue;
+        onHandleProcess(0, inOutValArr[2], DEBRIS);
+        break;
+      case "MOISTURETEST 1":
         indexNum = 0;
         moisturesProcess(indexNum, numValue);
+        moistureArr[0] = numValue;
+        onHandleProcess(0, moistureArr[0], MOISTURETEST1);
         break;
 
-      case "moisturetest 2":
+      case "MOISTURETEST 2":
         indexNum = 1;
         moisturesProcess(indexNum, numValue);
+        moistureArr[1] = numValue;
+        onHandleProcess(1, moistureArr[1], MOISTURETEST2);
         break;
 
-      case "moisturetest 3":
+      case "MOISTURETEST 3":
         indexNum = 2;
         moisturesProcess(indexNum, numValue);
+        moistureArr[2] = numValue;
+        onHandleProcess(2, moistureArr[2], MOISTURETEST3);
         break;
     }
   };
@@ -93,39 +112,40 @@ function WeightsMoisture() {
         <div className='vert-line'>
           <div id='weights-moisture'>{weightsMoisture}</div>
           {inOutDescArr.map((ioDesc, index) => {
-            return (
-              <label className='wm-field' key={index}>
-                <div
-                  className='align-right font-format-small'
-                  id={ioDesc.toLowerCase()}>
-                  {ioDesc}:
-                </div>
-                <input
-                  key={index}
-                  type='text'
-                  id={ioDesc}
-                  name={ioDesc}
-                  className='wm-input-size'
-                  defaultValue={zero}
-                  onChange={onHandleInput}
-                  onClick={handleFocus}
-                />
-              </label>
-            );
+            if (ioDesc !== "NET LOSS") {
+              return (
+                <label className='wm-field' key={index}>
+                  <div
+                    className='align-right font-format-small'
+                    id={ioDesc.toLowerCase()}>
+                    {ioDesc}:
+                  </div>
+                  <input
+                    key={index}
+                    type='text'
+                    id={ioDesc}
+                    name={ioDesc}
+                    className='wm-input-size'
+                    defaultValue={zero}
+                    onChange={onHandleInput}
+                    onClick={handleFocus}
+                  />
+                </label>
+              );
+            } else {
+              return (
+                <label htmlFor='out' className='wm-field' key={index}>
+                  <div
+                    className='align-right font-format-small'
+                    id='netlosslabel'>
+                    NET LOSS:
+                  </div>
+                  <span id='netloss'>{netLoss}</span>
+                </label>
+              );
+            }
           })}
-          {/*Net Loss  */}
-          <label htmlFor='out' className='wm-field'>
-            <div className='align-right font-format-small' id='netlosslabel'>
-              NET LOSS:
-            </div>
-            <span id='netloss'>{netLoss}</span>
-          </label>
-          <label htmlFor='debris' className='wm-field'>
-            <div className='align-right font-format-small' id='debris'>
-              DEBRIS:
-            </div>
-            <input type='text' id='debris-input' className='wm-input-size' />
-          </label>
+
           <hr id='wm-line' />
           {moistureDescArr.map((moist, index) => {
             return (
@@ -136,7 +156,7 @@ function WeightsMoisture() {
                 <input
                   type='text'
                   id={moist.toLowerCase().replace(/\s+/, "")}
-                  name={moist.toLowerCase().replace(/\s+/, "")}
+                  name={moist.toUpperCase().replace(/\s+/, "")}
                   className='wm-input-size'
                   onClick={handleFocus}
                   defaultValue={zero}
